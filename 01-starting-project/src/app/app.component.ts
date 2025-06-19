@@ -3,7 +3,6 @@ import {HeaderComponent} from "./header/header.component";
 import {UserComponent} from "./user/user.component";
 import {DUMMY_USERS} from "./dummy-users";
 import {TasksComponent} from "./tasks/tasks.component";
-import {NgForOf, NgIf} from "@angular/common";
 
 @Component({
   selector: 'app-root',
@@ -11,9 +10,7 @@ import {NgForOf, NgIf} from "@angular/common";
   imports: [
     HeaderComponent,
     UserComponent,
-    TasksComponent,
-    NgForOf,
-    NgIf
+    TasksComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
