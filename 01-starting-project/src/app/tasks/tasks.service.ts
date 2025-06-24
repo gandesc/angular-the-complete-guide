@@ -1,6 +1,8 @@
 import {NewTaskData} from "./task/task.model";
+import {Injectable} from "@angular/core";
 
-class TasksService {
+@Injectable({providedIn: 'root'})
+export class TasksService {
   private tasks = [
     {
       id: 't1',
@@ -27,9 +29,9 @@ class TasksService {
     },
   ];
 
-  getUserTasks(userId: string) {
+  getUserTasks(myUserId: string) {
     return this.tasks
-      .filter(({userId}) => userId === this.userId);
+      .filter(({userId}) => userId === myUserId);
   }
 
   addTask(taskData: NewTaskData, userId: string) {
