@@ -27,7 +27,7 @@ export class TasksComponent {
   }
 
   onCompleteTask(taskId: string) {
-
+    this.tasksService.removeTask(taskId);
   }
 
   onStartAddTask() {
