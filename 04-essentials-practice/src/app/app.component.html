@@ -1,3 +1,7 @@
 <app-header/>
-<app-user-input/>
-<app-investment-results/>
+<app-user-input (detailsSubmit)="onDetailsSubmitted($event)"/>
+@if (!!investmentResults) {
+  <app-investment-results [investmentResults]="investmentResults"/>
+} @else {
+  <p id="fallback">Input details first</p>
+}

@@ -2,7 +2,9 @@
 // e.g., integrate it into a service or component
 // You may need to tweak it, depending on where and how you use it
 
-function calculateInvestmentResults() {
+import {InvestmentDetailsModel} from "./user-input/investment-details.model";
+
+export function calculateInvestmentResults({initialInvestment, annualInvestment, duration, expectedReturn}:InvestmentDetailsModel) {
   const annualData = [];
   let investmentValue = initialInvestment;
 
