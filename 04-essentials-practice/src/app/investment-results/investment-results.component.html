@@ -10,7 +10,7 @@
     <th>Invested Capital</th>
     </thead>
     <tbody>
-      @for (line of results; track line.year) {
+      @for (line of results(); track line.year) {
         <tr>
           <td>{{ line.year }}</td>
           <td>{{ line.valueEndOfYear | currency }}</td>
