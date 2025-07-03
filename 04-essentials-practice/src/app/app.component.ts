@@ -1,9 +1,9 @@
-import { Component } from '@angular/core';
+import {Component, inject} from '@angular/core';
 import {HeaderComponent} from "./header/header.component";
 import {UserInputComponent} from "./user-input/user-input.component";
 import {InvestmentResultsComponent} from "./investment-results/investment-results.component";
-import {InvestmentDetailsModel} from "./user-input/investment-details.model";
-import {calculateInvestmentResults} from './investment-results';
+import type {InvestmentInput} from "./user-input/investment-input.model";
+import {InvestmentService} from "./investment.service";
 
 @Component({
   selector: 'app-root',
@@ -16,11 +16,11 @@ import {calculateInvestmentResults} from './investment-results';
   ]
 })
 export class AppComponent {
-  investmentResults?: any[];
+  private investmentService = inject(InvestmentService);
 
-  onDetailsSubmitted($event:InvestmentDetailsModel) {
-    this.investmentResults = calculateInvestmentResults($event);
+  onCalculateInvestmentResults($event: InvestmentInput) {
+    this.investmentService.calculateInvestmentResults($event);
 
-    console.log(this.investmentResults);
+    console.log(this.investmentService.resultData);
   }
 }
